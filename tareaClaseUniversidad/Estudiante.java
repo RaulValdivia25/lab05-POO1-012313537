@@ -3,8 +3,6 @@ package tareaClaseUniversidad;
 public class Estudiante extends Persona 
 {
 	private Double notas[] = new Double[5];
-	private String curso;
-	private String universidad;
 	
 	public Estudiante(String nombre, String apellido, int edad) 
 	{
@@ -33,26 +31,6 @@ public class Estudiante extends Persona
 	{
 		this.notas[numeroNota] = nota;
 	}
-	
-	public String getCurso() 
-	{
-		return curso;
-	}
-
-	public void setCurso(String curso) 
-	{
-		this.curso = curso;
-	}
-
-	public String getUniversidad() 
-	{
-		return universidad;
-	}
-
-	public void setUniversidad(String universidad) 
-	{
-		this.universidad = universidad;
-	}
 
 	@Override
 	public void mostrarInformacion()
@@ -66,26 +44,6 @@ public class Estudiante extends Persona
 		System.out.println("El nombre del estudiante es: " + getNombre());
 		System.out.println("El apellido del estudiante es: " + getApellido());
 		System.out.println("La edad del estudiante es: " + getEdad());
-		
-		if (curso != null)
-		{
-			System.out.println("El estudiante pertenece al curso de: " + getCurso());
-		}
-		
-		else
-		{
-			System.out.println("El estudiante no pertenece a ningun curso.");
-		}
-		
-		if (universidad != null)
-		{
-			System.out.println("El profesor pertenece a la universidad: " + getUniversidad());
-		}
-		
-		else
-		{
-			System.out.println("El profesor no pertenece a ninguna universidad.");
-		}
 		
 		System.out.println("Las notas del estudiantes son: ");
 		

@@ -14,13 +14,6 @@ public class Curso
 		this.nombreCurso = nombreCurso;
 		this.profesor = profesor;
 		this.estudiantes = estudiantes;
-		
-		estudiantes[0].setCurso(getNombreCurso());
-		estudiantes[1].setCurso(getNombreCurso());
-		estudiantes[2].setCurso(getNombreCurso());
-		estudiantes[3].setCurso(getNombreCurso());
-		estudiantes[4].setCurso(getNombreCurso());
-		profesor.setCurso(getNombreCurso()	);
 	}
 
 	public String getNombreCurso() 
@@ -40,12 +33,7 @@ public class Curso
 
 	public void setProfesor(Profesor profesor) 
 	{
-		String curso;
-		
-		curso = getNombreCurso();
-		
 		this.profesor = profesor;
-		profesor.setCurso(curso);
 	}
 
 	public Estudiante[] getEstudiantes() 
@@ -56,11 +44,6 @@ public class Curso
 	public void setEstudiantes(Estudiante[] estudiantes) 
 	{
 		this.estudiantes = estudiantes;
-		estudiantes[0].setCurso(getNombreCurso());
-		estudiantes[1].setCurso(getNombreCurso());
-		estudiantes[2].setCurso(getNombreCurso());
-		estudiantes[3].setCurso(getNombreCurso());
-		estudiantes[4].setCurso(getNombreCurso());
 	}
 	
 	public Estudiante getEstudianteEspecifico(int numeroEstudiante) 
@@ -84,7 +67,6 @@ public class Curso
 		if (numeroElemento < tamañoArreglo)
 		{
 			estudiante = estudiantes[numeroElemento];
-			estudiante.setCurso(getNombreCurso());
 		}
 		
 		else
@@ -115,15 +97,5 @@ public class Curso
 			System.out.println("La informacion del estudiante " + numeroEstudiante + " es: ");
 			estudiantes[numeroElemento].mostrarInformacion();
 		}
-	}
-	
-	public void agregarUniversidad(String universidad)
-	{
-		profesor.setUniversidad(universidad);
-		estudiantes[0].setUniversidad(universidad);
-		estudiantes[1].setUniversidad(universidad);
-		estudiantes[2].setUniversidad(universidad);
-		estudiantes[3].setUniversidad(universidad);
-		estudiantes[4].setUniversidad(universidad);
 	}
 }

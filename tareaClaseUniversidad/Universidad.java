@@ -5,20 +5,14 @@ public class Universidad
 	private String nombreUniversidad;
 	private Estudiante estudiantesUniversitarios[] = new Estudiante[25];
 	private Profesor profesoresUniversitarios[] = new Profesor[5];
-	private Curso cursosUniversitarios[] = new Curso[5];
+	private Programa programasUniversitarios[] = new Programa[5];
 	
-	public Universidad(String nombreUniversidad, Estudiante[] estudiantesUniversitarios, Profesor[] profesoresUniversitarios, Curso[] cursosUniversitarios) 
+	public Universidad(String nombreUniversidad, Estudiante[] estudiantesUniversitarios, Profesor[] profesoresUniversitarios, Programa[] programasUniversitarios) 
 	{
 		this.estudiantesUniversitarios = estudiantesUniversitarios;
 		this.profesoresUniversitarios = profesoresUniversitarios;
-		this.cursosUniversitarios = cursosUniversitarios;
+		this.programasUniversitarios = programasUniversitarios;
 		this.nombreUniversidad = nombreUniversidad;
-		
-		cursosUniversitarios[0].agregarUniversidad(getNombreUniversidad());
-		cursosUniversitarios[1].agregarUniversidad(getNombreUniversidad());
-		cursosUniversitarios[2].agregarUniversidad(getNombreUniversidad());
-		cursosUniversitarios[3].agregarUniversidad(getNombreUniversidad());
-		cursosUniversitarios[4].agregarUniversidad(getNombreUniversidad());
 	}
 	
 	public Universidad()
@@ -54,39 +48,37 @@ public class Universidad
 		this.profesoresUniversitarios = profesoresUniversitarios;
 	}
 
-	public Curso[] getCursosUniversitarios() 
+	public Programa[] getProgramasUniversitarios() 
 	{
-		return cursosUniversitarios;
+		return programasUniversitarios;
 	}
 
-	public void setCursosUniversitarios(Curso[] cursosUniversitarios) 
+	public void setProgramasUniversitarios(Programa[] programasUniversitarios) 
 	{
-		this.cursosUniversitarios = cursosUniversitarios;
+		this.programasUniversitarios = programasUniversitarios;
 	}
 	
-	public void agregarCurso (Curso curso)
+	public void agregarPrograma (Programa programa)
 	{
 		int numeroElemento;
 		int tamañoArreglo;
 		
-		tamañoArreglo = cursosUniversitarios.length;
+		tamañoArreglo = programasUniversitarios.length;
 		numeroElemento = 0;
 		
-		while (numeroElemento < tamañoArreglo && cursosUniversitarios[numeroElemento] != null)
+		while (numeroElemento < tamañoArreglo && programasUniversitarios[numeroElemento] != null)
 		{
 			numeroElemento++;
 		}
 		
 		if (numeroElemento < tamañoArreglo)
 		{
-			curso = cursosUniversitarios[numeroElemento];
-			curso.agregarUniversidad(getNombreUniversidad());
-			
+			programa = programasUniversitarios[numeroElemento];
 		}
 		
 		else
 		{
-			System.out.println("La universidad esta llena. No se pueden agregar más cursos.");
+			System.out.println("La universidad esta llena. No se pueden agregar más programas.");
 		}
 	}
 	
@@ -106,7 +98,6 @@ public class Universidad
 		if (numeroElemento < tamañoArreglo)
 		{
 			profesor = profesoresUniversitarios[numeroElemento];
-			profesor.setUniversidad(getNombreUniversidad());
 		}
 		
 		else
@@ -131,7 +122,6 @@ public class Universidad
 		if (numeroElemento < tamañoArreglo)
 		{
 			estudiante = estudiantesUniversitarios[numeroElemento];
-			estudiante.setUniversidad(getNombreUniversidad());
 		}
 		
 		else
@@ -140,21 +130,21 @@ public class Universidad
 		}
 	}
 	
-	public void mostrarInfomacionCursos()
+	public void mostrarInfomacionProgramas()
 	{
 		int tamañoArreglo;
 		int numeroElemento;
 		int numeroCurso;
 		
-		tamañoArreglo = cursosUniversitarios.length;
+		tamañoArreglo = programasUniversitarios.length;
 		
 		for (numeroElemento = 0; numeroElemento < tamañoArreglo; numeroElemento++)
 		{
 			numeroCurso = numeroElemento + 1;
 			
-			System.out.println("INFORMACION SOBRE LOS CURSOS DE LA UNIVERSIDAD");
-			System.out.println("La informacion del curso " + numeroCurso + " es: ");
-			cursosUniversitarios[numeroElemento].mostrarInformacion();
+			System.out.println("INFORMACION SOBRE LOS PROGRAMAS DE LA UNIVERSIDAD");
+			System.out.println("La informacion del programa " + numeroCurso + " es: ");
+			programasUniversitarios[numeroElemento].mostrarInformacion();
 		}
 	}
 	
