@@ -41,25 +41,37 @@ public class Estudiante extends Persona
 		
 		tamañoArreglo = notas.length;
 		
-		System.out.println("El nombre del estudiante es: " + getNombre());
-		System.out.println("El apellido del estudiante es: " + getApellido());
-		System.out.println("La edad del estudiante es: " + getEdad());
+		String nombre;
+		nombre = getNombre();
 		
-		System.out.println("Las notas del estudiantes son: ");
-		
-		for (numeroElemento = 0; numeroElemento < tamañoArreglo; numeroElemento++)
+		if (nombre != null)
 		{
-			numeroNota = numeroElemento + 1;
+			System.out.println("El nombre del estudiante es: " + getNombre() + " " + getApellido());
+			System.out.println("La edad del estudiante es: " + getEdad());
 			
-			if (notas[numeroElemento] != null)
-			{
-				System.out.println("La nota " + numeroNota + " es: " + notas[numeroElemento]);
-			}
+			System.out.println("El ID del profesor es: " + getID());
 			
-			else
+			System.out.println("Las notas del estudiantes son: ");
+			
+			for (numeroElemento = 0; numeroElemento < tamañoArreglo; numeroElemento++)
 			{
-				System.out.println("La nota " + numeroNota + " es: No se ha ingresado un valor.");
-			}
-		}	
+				numeroNota = numeroElemento + 1;
+				
+				if (notas[numeroElemento] != null)
+				{
+					System.out.println("La nota " + numeroNota + " es: " + notas[numeroElemento]);
+				}
+				
+				else
+				{
+					System.out.println("La nota " + numeroNota + " es: No se ha ingresado un valor.");
+				}
+			}	
+		}
+		
+		else
+		{
+			System.out.println("No se han ingresado los datos de este estudiante.");
+		}
 	}
 }

@@ -49,7 +49,7 @@ public class Programa
 		
 		if (numeroElemento < tamañoArreglo)
 		{
-			curso = cursosDelPrograma[numeroElemento];
+			cursosDelPrograma[numeroElemento] = curso;
 		}
 		
 		else
@@ -66,16 +66,36 @@ public class Programa
 		
 		tamañoArreglo = cursosDelPrograma.length;
 		
-		System.out.println("El nombre del programa es: " + getNombrePrograma());
-
-		System.out.println("INFORMACION DE LOS CURSOS DEL PROGRAMA");
+		String nombre;
+		nombre = getNombrePrograma();
 		
-		for (numeroElemento = 0; numeroElemento < tamañoArreglo; numeroElemento++)
+		if (nombre != null)
 		{
-			numeroCurso = numeroElemento + 1;
+			System.out.println("El nombre del programa es: " + getNombrePrograma());
+
+			System.out.println("INFORMACION DE LOS CURSOS DEL PROGRAMA");
 			
-			System.out.println("La informacion del curso " + numeroCurso + " es: ");
-			cursosDelPrograma[numeroElemento].mostrarInformacion();
+			for (numeroElemento = 0; numeroElemento < tamañoArreglo; numeroElemento++)
+			{
+				numeroCurso = numeroElemento + 1;
+				
+				System.out.println("La informacion del curso " + numeroCurso + " es: ");
+				
+				if (cursosDelPrograma[numeroElemento] != null)
+				{
+					cursosDelPrograma[numeroElemento].mostrarInformacion();	
+				}
+				
+				else
+				{
+					System.out.println("No se ha ingresado los datos de este curso.");
+				}
+			}
+		}
+		
+		else
+		{
+			System.out.println("No se ha ingresado los datos de este programa.");
 		}
 	}
 }

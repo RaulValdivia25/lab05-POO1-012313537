@@ -3,18 +3,20 @@ package tareaClaseUniversidad;
 public class Universidad 
 {
 	private String nombreUniversidad;
-	private Estudiante estudiantesUniversitarios[] = new Estudiante[25];
-	private Profesor profesoresUniversitarios[] = new Profesor[5];
 	private Programa programasUniversitarios[] = new Programa[5];
+	private Facultad facultadesUniversitarias[] = new Facultad[5];
+	private Persona personasUniversitarias[] = new Persona[30];
 	
-	public Universidad(String nombreUniversidad, Estudiante[] estudiantesUniversitarios, Profesor[] profesoresUniversitarios, Programa[] programasUniversitarios) 
+	
+	public Universidad(String nombreUniversidad, Programa[] programasUniversitarios,
+			Facultad[] facultadesUniversitarias, Persona[] personasUniversitarias) 
 	{
-		this.estudiantesUniversitarios = estudiantesUniversitarios;
-		this.profesoresUniversitarios = profesoresUniversitarios;
-		this.programasUniversitarios = programasUniversitarios;
 		this.nombreUniversidad = nombreUniversidad;
+		this.programasUniversitarios = programasUniversitarios;
+		this.facultadesUniversitarias = facultadesUniversitarias;
+		this.personasUniversitarias = personasUniversitarias;
 	}
-	
+
 	public Universidad()
 	{}
 	
@@ -28,26 +30,6 @@ public class Universidad
 		this.nombreUniversidad = nombreUniversidad;
 	}
 
-	public Estudiante[] getEstudiantesUniversitarios() 
-	{
-		return estudiantesUniversitarios;
-	}
-
-	public void setEstudiantesUniversitarios(Estudiante[] estudiantesUniversitarios) 
-	{
-		this.estudiantesUniversitarios = estudiantesUniversitarios;
-	}
-
-	public Profesor[] getProfesoresUniversitarios() 
-	{
-		return profesoresUniversitarios;
-	}
-
-	public void setProfesoresUniversitarios(Profesor[] profesoresUniversitarios) 
-	{
-		this.profesoresUniversitarios = profesoresUniversitarios;
-	}
-
 	public Programa[] getProgramasUniversitarios() 
 	{
 		return programasUniversitarios;
@@ -58,6 +40,26 @@ public class Universidad
 		this.programasUniversitarios = programasUniversitarios;
 	}
 	
+	public Facultad[] getFacultadesUniversitarias() 
+	{
+		return facultadesUniversitarias;
+	}
+
+	public void setFacultadesUniversitarias(Facultad[] facultadesUniversitarias) 
+	{
+		this.facultadesUniversitarias = facultadesUniversitarias;
+	}
+
+	public Persona[] getPersonasUniversitarias() 
+	{
+		return personasUniversitarias;
+	}
+
+	public void setPersonasUniversitarias(Persona[] personasUniversitarias) 
+	{
+		this.personasUniversitarias = personasUniversitarias;
+	}
+
 	public void agregarPrograma (Programa programa)
 	{
 		int numeroElemento;
@@ -73,7 +75,31 @@ public class Universidad
 		
 		if (numeroElemento < tamañoArreglo)
 		{
-			programa = programasUniversitarios[numeroElemento];
+			programasUniversitarios[numeroElemento] = programa;
+		}
+		
+		else
+		{
+			System.out.println("La universidad esta llena. No se pueden agregar más programas.");
+		}
+	}
+	
+	public void agregarFacultad (Facultad facultad)
+	{
+		int numeroElemento;
+		int tamañoArreglo;
+		
+		tamañoArreglo = facultadesUniversitarias.length;
+		numeroElemento = 0;
+		
+		while (numeroElemento < tamañoArreglo && facultadesUniversitarias[numeroElemento] != null)
+		{
+			numeroElemento++;
+		}
+		
+		if (numeroElemento < tamañoArreglo)
+		{
+			facultadesUniversitarias[numeroElemento] = facultad;
 		}
 		
 		else
@@ -87,17 +113,17 @@ public class Universidad
 		int numeroElemento;
 		int tamañoArreglo;
 		
-		tamañoArreglo = profesoresUniversitarios.length;
+		tamañoArreglo = personasUniversitarias.length;
 		numeroElemento = 0;
 		
-		while (numeroElemento < tamañoArreglo && profesoresUniversitarios[numeroElemento] != null)
+		while (numeroElemento < tamañoArreglo && personasUniversitarias[numeroElemento] != null)
 		{
 			numeroElemento++;
 		}
 		
 		if (numeroElemento < tamañoArreglo)
 		{
-			profesor = profesoresUniversitarios[numeroElemento];
+			personasUniversitarias[numeroElemento] = profesor;
 		}
 		
 		else
@@ -111,17 +137,17 @@ public class Universidad
 		int numeroElemento;
 		int tamañoArreglo;
 		
-		tamañoArreglo = estudiantesUniversitarios.length;
+		tamañoArreglo = personasUniversitarias.length;
 		numeroElemento = 0;
 		
-		while (numeroElemento < tamañoArreglo && estudiantesUniversitarios[numeroElemento] != null)
+		while (numeroElemento < tamañoArreglo && personasUniversitarias[numeroElemento] != null)
 		{
 			numeroElemento++;
 		}
 		
 		if (numeroElemento < tamañoArreglo)
 		{
-			estudiante = estudiantesUniversitarios[numeroElemento];
+			personasUniversitarias[numeroElemento] = estudiante;
 		}
 		
 		else
@@ -143,44 +169,84 @@ public class Universidad
 			numeroCurso = numeroElemento + 1;
 			
 			System.out.println("INFORMACION SOBRE LOS PROGRAMAS DE LA UNIVERSIDAD");
-			System.out.println("La informacion del programa " + numeroCurso + " es: ");
-			programasUniversitarios[numeroElemento].mostrarInformacion();
+			
+			if (programasUniversitarios[numeroElemento] != null)
+			{
+				System.out.println("La informacion del programa " + numeroCurso + " es: ");
+				programasUniversitarios[numeroElemento].mostrarInformacion();
+			}
+			
+			else
+			{
+				System.out.println("No se agregaron los datos de este programa.");
+			}
 		}
 	}
 	
-	public void mostrarInfomacionEstudiantes()
+	public void mostrarInfomacionFacultades()
 	{
 		int tamañoArreglo;
 		int numeroElemento;
-		int numeroEstudiante;
+		int numeroFacultad;
 		
-		tamañoArreglo = estudiantesUniversitarios.length;
+		tamañoArreglo = programasUniversitarios.length;
 		
 		for (numeroElemento = 0; numeroElemento < tamañoArreglo; numeroElemento++)
 		{
-			numeroEstudiante = numeroElemento + 1;
+			numeroFacultad = numeroElemento + 1;
 			
-			System.out.println("INFORMACION SOBRE LOS ESTUDIANTES DE LA UNIVERSIDAD");
-			System.out.println("La informacion del estudiante " + numeroEstudiante + " es: ");
-			estudiantesUniversitarios[numeroElemento].mostrarInformacion();
+			System.out.println("INFORMACION SOBRE LOS PROGRAMAS DE LA UNIVERSIDAD");
+			
+			if (facultadesUniversitarias[numeroElemento] != null)
+			{
+				System.out.println("La informacion del programa " + numeroFacultad + " es: ");
+				facultadesUniversitarias[numeroElemento].mostrarInformacion();
+			}
+			
+			else
+			{
+				System.out.println("No se agregaron los datos de esta facultad.");
+			}
 		}
 	}
 	
-	public void mostrarInfomacionProfesores()
+	public void mostrarInfomacionPersonas()
 	{
 		int tamañoArreglo;
 		int numeroElemento;
-		int numeroProfesor;
+		int numeroPersona;
 		
-		tamañoArreglo = profesoresUniversitarios.length;
+		tamañoArreglo = personasUniversitarias.length;
 		
 		for (numeroElemento = 0; numeroElemento < tamañoArreglo; numeroElemento++)
 		{
-			numeroProfesor = numeroElemento + 1;
+			numeroPersona = numeroElemento + 1;
 			
-			System.out.println("INFORMACION SOBRE LOS PROFESORES DE LA UNIVERSIDAD");
-			System.out.println("La informacion del profesor " + numeroProfesor + " es: ");
-			profesoresUniversitarios[numeroElemento].mostrarInformacion();
+			System.out.println("INFORMACION SOBRE LAS PERSONAS DE LA UNIVERSIDAD");
+			System.out.println("La informacion de la persona " + numeroPersona + " es: ");
+			
+			if (personasUniversitarias[numeroElemento] instanceof Persona)
+			{
+				personasUniversitarias[numeroElemento].mostrarInformacion();
+			}
+			
+			else if (personasUniversitarias[numeroElemento] instanceof Profesor)
+			{
+				System.out.println("La persona " + numeroPersona + " es un profesor.");
+				personasUniversitarias[numeroElemento].mostrarInformacion();
+			}
+			
+			else if (personasUniversitarias[numeroElemento] instanceof Estudiante)
+			{
+				System.out.println("La persona " + numeroPersona + " es un estudiante.");
+				personasUniversitarias[numeroElemento].mostrarInformacion();
+			}
+			
+			else if (personasUniversitarias[numeroElemento] == null)
+			{
+				System.out.println("No se han ingresado de esta persona.");
+			}
 		}
 	}
+	
 }

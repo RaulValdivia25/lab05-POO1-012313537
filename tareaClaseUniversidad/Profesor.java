@@ -4,9 +4,7 @@ import java.util.Scanner;
 
 public class Profesor extends Persona
 {
-	private double salario;
-	private String curso;
-	private String universidad;
+	private Double salario;
 	
 	public Profesor(String nombre, String apellido, int edad, double salario) 
 	{
@@ -26,55 +24,22 @@ public class Profesor extends Persona
 	{
 		this.salario = salario;
 	}
-	
-	public String getCurso() 
-	{
-		return curso;
-	}
-
-	public void setCurso(String curso) 
-	{
-		this.curso = curso;
-	}
-
-	public String getUniversidad() 
-	{
-		return universidad;
-	}
-
-	public void setUniversidad(String universidad) 
-	{
-		this.universidad = universidad;
-	}
 
 	@Override
 	public void mostrarInformacion()
 	{
-		System.out.println("El nombre del profesor es: " + getNombre());
-		System.out.println("El apellido del profesor es: " + getApellido());
-		System.out.println("La edad del profesor es: " + getEdad());
-		
-		if (curso != null)
+		if (salario != null)
 		{
-			System.out.println("El profesor pertenece al curso de: " + getCurso());
+			System.out.println("El nombre del profesor es: " + getNombre() + " " + getApellido());
+			System.out.println("La edad del profesor es: " + getEdad());
+			System.out.println("El salario del profesor es: " + getSalario());
+			System.out.println("El ID del profesor es: " + getID());
 		}
 		
 		else
 		{
-			System.out.println("El profesor no pertenece a ningun curso.");
+			System.out.println("No se han igresado los datos de este profesor.");
 		}
-		
-		if (universidad != null)
-		{
-			System.out.println("El profesor pertenece a la universidad: " + getUniversidad());
-		}
-		
-		else
-		{
-			System.out.println("El profesor no pertenece a ninguna universidad.");
-		}
-		
-		System.out.println("El salario del profesor es: " + getSalario());
 	}
 	
 	public void evaluarEstudiante(Estudiante estudiante)
@@ -85,7 +50,6 @@ public class Profesor extends Persona
 		int numeroNotaIngresada;
 		
 		System.out.println("Ingrese el numero de la nota (1, 2, 3...): ");
-		
 		
 		numeroNotaIngresada = entrada1.nextInt();
 		
